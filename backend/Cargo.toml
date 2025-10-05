@@ -1,37 +1,3 @@
-# # [package]
-# # name = "rsi-processor"
-# # version = "0.1.0"
-# # edition = "2021"
-
-# # [dependencies]
-# # tokio = { version = "1.38", features = ["macros", "rt-multi-thread", "time"] }
-# # rdkafka = { version = "0.36", features = ["cmake-build"] }
-# # serde = { version = "1.0", features = ["derive"] }
-# # serde_json = "1.0"
-# # futures = "0.3"
-# # log = "0.4"
-# # env_logger = "0.10"
-# [package]
-# name = "rust-rsi-kafka-backend"
-# version = "0.1.0"
-# edition = "2021"
-
-
-# # [dependencies]
-# # tokio = { version = "1", features = ["full"] }
-# # rdkafka = { version = "0.38", features = ["tokio"] }
-# # serde = { version = "1.0", features = ["derive"] }
-# # serde_json = "1.0"
-# # anyhow = "1.0"
-# # futures = "0.3"
-# [dependencies]
-# warp = "0.3"
-# tokio = { version = "1", features = ["full"] }
-# serde = { version = "1", features = ["derive"] }
-# serde_json = "1"
-# futures-util = "0.3"
-# rand = "0.8"
-
 [package]
 name = "rsi_processor"
 version = "0.1.0"
