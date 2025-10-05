@@ -86,7 +86,7 @@ fn process_csv() -> Result<(), Box<dyn Error>> {
 async fn main() -> Result<(), Box<dyn Error>> {
     process_csv()?;
 
-    // Get PORT from environment (default 8080)
+    // Get PORT from env (default 8080)
     let port = env::var("PORT").unwrap_or_else(|_| "8080".to_string());
     let port: u16 = port.parse().unwrap();
 
@@ -98,11 +98,11 @@ async fn main() -> Result<(), Box<dyn Error>> {
         })
         .with(
             warp::cors()
-                .allow_origin("http://localhost:3000")
+                .allow_any_origin()
                 .allow_methods(vec!["GET"])
         );
 
-    println!("HTTP server running at 0.0.0.0:{} /rsi", port);
+    println!("HTTP server running at 0.0.0.0:{}/rsi", port);
     warp::serve(rsi_route).run(([0, 0, 0, 0], port)).await;
 
     Ok(())
