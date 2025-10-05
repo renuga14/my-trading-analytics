@@ -1,0 +1,6 @@
+block_time,transaction_signature,block_num,program_id,trade_type,wallet_address,token_address,is_buy,amount_in_sol,amount_in_token,change_in_sol,change_in_tokens,price_in_sol,virtual_sol_reserves,virtual_token_reserves,real_sol_reserves,real_token_reserves,fee_recipient,fee_basis_points,fee_amount,creator_address,creator_fee_basis_points,creator_fee_amount,ingested_at
+2025-10-01T10:00:00Z,tx1,1000,prog1,buy,wallet1,token1,true,1.0,10,1.0,10,0.1,1000,10000,990,9900,fee1,30,0.03,creator1,5,0.005,2025-10-01T10:00:01Z
+2025-10-01T10:05:00Z,tx2,1001,prog1,buy,wallet2,token1,true,2.0,20,2.0,20,0.1,1002,10020,992,9920,fee2,30,0.06,creator2,5,0.01,2025-10-01T10:05:01Z
+2025-10-01T10:10:00Z,tx3,1002,prog1,sell,wallet3,token1,false,1.5,15,-1.5,-15,0.1,1001,10010,991,9910,fee3,30,0.045,creator3,5,0.0075,2025-10-01T10:10:01Z
+2025-10-01T10:00:00Z,tx4,1003,prog1,buy,wallet4,token2,true,0.5,5,0.5,5,0.1,500,5000,495,4950,fee4,30,0.015,creator4,5,0.0025,2025-10-01T10:00:01Z
+2025-10-01T10:05:00Z,tx5,1004,prog1,sell,wallet5,token2,false,0.7,7,-0.7,-7,0.1,502,5007,497,4970,fee5,30,0.021,creator5,5,0.0035,2025-10-01T10:05:01Z
