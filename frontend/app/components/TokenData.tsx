@@ -38,7 +38,7 @@ export default function TokenDashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:3030/rsi");
+        const res = await axios.get("https://my-trading-analytics-2.onrender.com/rsi");
         setAllData(res.data);
       } catch (err) {
         console.error("Error fetching backend data:", err);
