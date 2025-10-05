@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use std::error::Error;
 use std::fs::{self, File};
 use warp::Filter;
-
+use std::env;
 #[derive(Debug, Deserialize)]
 struct Trade {
     block_time: String,  
@@ -84,24 +84,26 @@ fn process_csv() -> Result<(), Box<dyn Error>> {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    // Step 1: Process CSV and generate JSON
     process_csv()?;
 
-    // Step 2: Start HTTP server
+    // Get PORT from environment (default 8080)
+    let port = env::var("PORT").unwrap_or_else(|_| "8080".to_string());
+    let port: u16 = port.parse().unwrap();
+
     let rsi_route = warp::path("rsi")
         .map(|| {
             let data = fs::read_to_string("rsi_output.json")
                 .unwrap_or_else(|_| "[]".to_string());
             warp::reply::with_header(data, "Content-Type", "application/json")
         })
-         .with(
-        warp::cors()
-            .allow_origin("http://localhost:3000") 
-            .allow_methods(vec!["GET"])
-    );
+        .with(
+            warp::cors()
+                .allow_origin("http://localhost:3000")
+                .allow_methods(vec!["GET"])
+        );
 
-    println!("HTTP server running at http://localhost:3030/rsi");
-    warp::serve(rsi_route).run(([127, 0, 0, 1], 3030)).await;
+    println!("HTTP server running at 0.0.0.0:{} /rsi", port);
+    warp::serve(rsi_route).run(([0, 0, 0, 0], port)).await;
 
     Ok(())
 }
